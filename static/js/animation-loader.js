@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const aboutContent = document.querySelector(".about-content");
   const skillsSection = document.querySelector(".skills-section");
   const skillItems = document.querySelectorAll(".skill-item");
+  const textElements = document.querySelectorAll("h1, h2, p"); // Select all h1, h2, and p elements
 
   const observer = new IntersectionObserver(
     (entries, observer) => {
@@ -33,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.classList.add("visible");
               }, index * 200);
             });
+          } else if (entry.target.tagName === "H1" || entry.target.tagName === "H2" || entry.target.tagName === "P") {
+            entry.target.classList.add("visible");
           }
 
           observer.unobserve(entry.target); // Stop observing once animation is triggered
@@ -48,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (technologiesSection) observer.observe(technologiesSection);
   if (aboutContent) observer.observe(aboutContent);
   if (skillsSection) observer.observe(skillsSection);
+  textElements.forEach(element => observer.observe(element)); // Observe all h1, h2, and p elements
 
   // Loader and Navbar visibility
   window.onload = function () {

@@ -26,6 +26,17 @@ html {
   scroll-behavior: smooth;
 }
 
+h1, h2, p {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Move slightly downward */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* Smooth animation */
+}
+
+h1.visible, h2.visible, p.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Reset position */
+}
+
 .headline-light {
   color: #ffffff;
 }
@@ -45,8 +56,6 @@ html {
   /* Keep dropdown menu within navbar scope */
   z-index: 1;
 }
-
-
 
 /* Full Height Hero Section */
 .hero {
@@ -389,7 +398,7 @@ html {
 }
 
 /* ==========================
-     TECHNOLOGIES SECTION  
+     TECHNOLOGIES SECTION
 =========================== */
 .technologies-section {
   width: 100%;
@@ -646,7 +655,7 @@ html {
 }
 
 /* ==========================
-     CONTACT SECTION  
+     CONTACT SECTION
 =========================== */
 .contact-section {
   padding: 60px 0;
